@@ -1,0 +1,35 @@
+{
+  "name": "boxt",
+  "version": "1.0.0",
+  "description": "📦 Create boxes around text",
+  "keywords": [
+    "box",
+    "cli",
+    "title",
+    "message",
+    "📦"
+  ],
+  "author": "omrilotan",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omrilotan/boxt.git"
+  },
+  "homepage": "https://omrilotan.com/boxt/",
+  "main": "index.js",
+  "scripts": {
+    "start": "node examples",
+    "test": "mocha '**/spec.js' --recursive",
+    "lint": "eslint . --ext .js"
+  },
+  "dependencies": {
+    "colors": "^1.3.2"
+  },
+  "devDependencies": {
+    "@omrilotan/eslint-config": "^1.3.0",
+    "chai": "^4.3.0",
+    "chalk": "^4.1.0",
+    "eslint": "^7.21.0",
+    "mocha": "^8.3.0"
+  }
+}
