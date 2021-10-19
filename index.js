@@ -1,4 +1,4 @@
-const colors = require('colors');
+const chalk = require('chalk');
 const arrayOf = require('./lib/arrayOf');
 const length = require('./lib/length');
 const maxLength = require('./lib/maxLength');
@@ -62,8 +62,8 @@ module.exports = function boxed(message, {
 	title,
 } = {}) {
 
-	if (!Object.prototype.hasOwnProperty.call(colors, color)) {
-		throw new Error(`colors does not support color "${color}"`);
+	if (typeof chalk[color] !== 'function') {
+		throw new Error(`unsupported color "${color}"`);
 	}
 	if (!Object.prototype.hasOwnProperty.call(themes, theme)) {
 		throw new Error(`themes do not include a "${theme}" theme`);
@@ -72,7 +72,10 @@ module.exports = function boxed(message, {
 	const lines = message.split('\n');
 	const width = minWidth === 'full'
 		?	process.stdout.columns - 2 - padding * 2
-		: Math.max(Number(minWidth), maxLength(title, ...message.split('\n')))
+		: Math.max(
+			Number(minWidth) - 2 - padding * 2,
+			maxLength(title, ...message.split('\n')),
+		)
 	;
 	const space = width + padding * 2;
 	const times = (string = ' ', length = space) => arrayOf(string, length);
@@ -96,7 +99,7 @@ module.exports = function boxed(message, {
 		'br',
 		'ml',
 		'mr',
-	].map(item => themes[theme][item][color]);
+	].map(item => chalk[color](themes[theme][item]));
 
 	const lineMap = line => {
 		const w = width + line.length - length(line); // white space width including style chars

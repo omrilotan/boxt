@@ -32,7 +32,7 @@ boxt(
 | --- | --- | ---
 | title | A title | And string
 | theme | border style | 'single' (default), 'double', 'round'
-| color | border colour | see [`colors` on NPM](https://www.npmjs.com/package/colors)
+| color | border colour | see [`chalk` on NPM](https://www.npmjs.com/package/chalk)
 | padding | space from borders to text |
 | align | Where to align the lines | 'center' (default), 'left'/'start', 'right'/'end'
 | minWidth | Minimal width | any number or 'full' for full terminal width

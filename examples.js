@@ -1,4 +1,4 @@
-require('colors');
+const { bold, green } = require('chalk');
 const boxed = require('./');
 
 const log = (...args) => console.log(boxed(...args)); // eslint-disable-line no-console
@@ -24,9 +24,9 @@ log([
 	'neatly',
 ].join('\n'));
 
-log('I have a title', { title: 'I am the title'.bold });
+log('I have a title', { title: bold('I am the title') });
 
-log('peep', { title: 'My title is considerably longer than the body'.bold });
+log('peep', { title: bold('My title is considerably longer than the body') });
 
 log(`I am aligned to the left
 see?`, { align: 'left' });
@@ -39,11 +39,11 @@ log([ 'My white spaces counts!                    ',
      '                                    😀      ', // eslint-disable-line indent
 ].join('\n'));
 
-const $ = '✓'.green;
+const $ = green('✓');
 
-log(`Common 😜  emojis ${'and decorated text'.green.bold.underline}
+log(`Common 😜  emojis ${green.bold.underline('and decorated text')}
 are supported 🍺  ⚽️  and celebrated 🎉
-${'We also support'.bold}:
+${bold('We also support')}:
  ${$} left, right, and center alignment
  ${$} custom padding
  ${$} border colors and themes`, { theme: 'round', color: 'cyan', align: 'left' });
@@ -56,3 +56,4 @@ log(`some comopund emojis still need work
 
 log('~Margaret Mead', { title: '"You are absolutely unique. Just like everyone else."', minWidth: 'full' });
 log('<:3)~', { minWidth: 100 });
+log('<:3)~', { minWidth: null });
