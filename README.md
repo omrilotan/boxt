@@ -22,6 +22,8 @@ boxt(
 		color: 'green',
 		theme: 'round',
 		padding: 4,
+		align: 'center',
+		minWidth: 100
 	}
 );
 ```
@@ -33,6 +35,7 @@ boxt(
 | color | border colour | see [`colors` on NPM](https://www.npmjs.com/package/colors)
 | padding | space from borders to text |
 | align | Where to align the lines | 'center' (default), 'left'/'start', 'right'/'end'
+| minWidth | Minimal width | any number or 'full' for full terminal width
 
 ## Examples
 

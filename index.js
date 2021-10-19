@@ -58,6 +58,7 @@ module.exports = function boxed(message, {
 	padding = PADDING,
 	theme = THEME,
 	align = ALIGN,
+	minWidth = 0,
 	title,
 } = {}) {
 
@@ -69,7 +70,10 @@ module.exports = function boxed(message, {
 	}
 
 	const lines = message.split('\n');
-	const width = maxLength(title, ...message.split('\n'));
+	const width = minWidth === 'full'
+		?	process.stdout.columns - 2 - padding * 2
+		: Math.max(Number(minWidth), maxLength(title, ...message.split('\n')))
+	;
 	const space = width + padding * 2;
 	const times = (string = ' ', length = space) => arrayOf(string, length);
 

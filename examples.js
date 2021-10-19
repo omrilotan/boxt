@@ -53,3 +53,6 @@ log(`some comopund emojis still need work
 👨‍👨‍👦‍👦
 🇧🇷
 🙌🏾`);
+
+log('~Margaret Mead', { title: '"You are absolutely unique. Just like everyone else."', minWidth: 'full' });
+log('<:3)~', { minWidth: 100 });
